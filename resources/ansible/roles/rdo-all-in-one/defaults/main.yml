@@ -1,0 +1,3 @@
+files: [
+  { src: 'packstack-answers.cfg', dest: '/vagrant/packstack-answers.cfg', mode: '0644' }
+]

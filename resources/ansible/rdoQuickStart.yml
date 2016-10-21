@@ -1,0 +1,11 @@
+---
+# This is the main playbook what ansible will use for provisoning. 
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  serial: 1
+  roles:
+    - utils-tools
+    - rdo-all-in-one
+    
+    

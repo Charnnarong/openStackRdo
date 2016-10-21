@@ -1,0 +1,40 @@
+- name: Stop firewalld
+  service: name=firewalld enabled=no state=stopped
+
+- name: Stop NetworkManager
+  service: name=NetworkManager enabled=no state=stopped
+
+- name: Start network
+  service: name=network enabled=yes state=started
+
+- name: Add RDO repository
+  yum: name=https://rdoproject.org/repos/rdo-release.rpm state=present
+
+- name: Install Mitaka version
+  yum: name=centos-release-openstack-mitaka
+
+- name: upgrade all packages
+  yum: name=* state=latest
+
+- name: Install Packstack
+  yum: name=openstack-packstack
+
+- name: Files are copied
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+  with_items: "{{ files }}"
+
+- name: Install Packstack All-In-One.
+  command: packstack --answer-file /vagrant/packstack-answers.cfg
+
+- name: Delete default config file
+  file: path=/etc/httpd/conf.d/15-horizon_vhost.conf state=absent
+
+- name: Restart httpd
+  service: name=httpd enabled=yes state=restarted
+
+
+#TODO
+# 3.) Verify Openstack Horizon.
