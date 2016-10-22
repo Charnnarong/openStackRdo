@@ -21,6 +21,7 @@ So let's '**vagrant up**' and claim our coffee time back automatically. Enjoy :)
 ####Dashboard
 ----
 user     = admin
+
 password = password
 
 for more confiurations. Please refer to 
