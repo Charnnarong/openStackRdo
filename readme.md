@@ -3,6 +3,7 @@
 Just a wrapper for RdoProject. Please refer to https://www.rdoproject.org/install/quickstart/ for more details.
 
 It would be nice if we have something satisfy the following conditions.
+
 1. I want that isolate from my system.
 2. I want to have all of that up and running with mininum amount of afford i.e. no more than 'vagrant up' of typing.
 3. I should be able to control the final result, thus all configurations must be transparent.  
