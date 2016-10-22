@@ -1,3 +1,5 @@
+private_network_ip: 10.100.192.10
+
 files: [
   { src: 'packstack-answers.cfg', dest: '/vagrant/packstack-answers.cfg', mode: '0644' }
 ]

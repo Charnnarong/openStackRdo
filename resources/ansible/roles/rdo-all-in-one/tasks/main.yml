@@ -29,12 +29,13 @@
 - name: Install Packstack All-In-One.
   command: packstack --answer-file /vagrant/packstack-answers.cfg
 
-- name: Delete default config file
-  file: path=/etc/httpd/conf.d/15-horizon_vhost.conf state=absent
+
+- name: Set alias to OpenStack Dashboard to VM private IP
+  lineinfile:
+    dest=/etc/httpd/conf.d/15-horizon_vhost.conf
+    insertafter='ServerAlias localhost'
+    line="  ServerAlias {{ private_network_ip }}"
+    state=present
 
 - name: Restart httpd
   service: name=httpd enabled=yes state=restarted
-
-
-#TODO
-# 3.) Verify Openstack Horizon.
