@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
     d.vm.provision :shell, path: "scripts/bootstrap_ansible.sh"
     d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/rdoQuickStart.yml -c local -vvvvv"
     d.vm.provider "virtualbox" do |v|
-      v.memory = 5196
+      v.memory = 6144
       v.cpus = 4
     end
   end

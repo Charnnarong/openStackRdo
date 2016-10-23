@@ -33,7 +33,7 @@ else
                     sshpass \
                     sshpass.x86_64
     sudo pip install --upgrade pip
-    sudo pip install paramiko PyYAML Jinja2 httplib2 six
+    sudo pip install paramiko PyYAML Jinja2 httplib2 six pexpect
     if [ ! -d /vagrant/ansible_community ]; then
         sudo rm -rf /vagrant/ansible_community
     fi

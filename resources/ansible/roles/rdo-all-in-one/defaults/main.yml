@@ -1,5 +1,20 @@
+---
 private_network_ip: 10.100.192.10
 
 files: [
   { src: 'packstack-answers.cfg', dest: '/vagrant/packstack-answers.cfg', mode: '0644' }
 ]
+
+directories:
+  - /etc/pki/tls/certs
+  - /etc/pki/tls/private
+
+GENERATE_CSR_COUNTRY_NAME_ANSWER: --
+GENERATE_CSR_STATE_OR_PROVINCE_ANSWER: State
+GENERATE_CSR_LOCALITY_NAME: City
+GENERATE_CSR_ORGANIZATION_NAME: openstack
+GENERATE_CSR_ORGANIZATIONAL_UNIT_NAME: packstack
+GENERATE_CSR_COMMON_NAME: ostk
+GENERATE_CSR_EMAIL_ADDRESS: admin@ostk
+GENERATE_CSR_A_CHALLENGE_PASSWORD: .
+GENERATE_CSR_AN_OPTIONAL_COMPANY_NAME: .
