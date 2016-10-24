@@ -9,7 +9,7 @@
   service: name=network enabled=yes state=started
 
 - name: Add RDO repository.
-  yum: name=https://rdoproject.org/repos/rdo-release.rpm state=present
+  yum: name=https://repos.fedorapeople.org/repos/openstack/openstack-mitaka/rdo-release-mitaka-5.noarch.rpm state=present
 
 - name: Install Mitaka version
   yum: name=centos-release-openstack-mitaka
